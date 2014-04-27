@@ -3,11 +3,17 @@ class RovarSprak
   @@consonants = %w{ b c d f g h j k l m n p q r s t v w x }
 
   def self.to text
-    @@consonants.reduce(text) { |text, c| text.gsub(c, "#{c}o#{c}") }
+    @@consonants.reduce(text) { |text, c| text.gsub(c, expand(c)) }
   end
 
   def self.from text
-    @@consonants.reduce(text) { |text, c| text.gsub("#{c}o#{c}", c) }
+    @@consonants.reduce(text) { |text, c| text.gsub(expand(c), c) }
+  end
+
+  private
+
+  def self.expand consonant
+    "#{consonant}o#{consonant}"
   end
 
 end
