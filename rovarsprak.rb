@@ -38,7 +38,7 @@ class CLI
   end
 
   def output
-    RovarSprak.send(direction, text)
+    RovarSprak.public_send(direction, text)
   end
 end
 
