@@ -19,17 +19,19 @@ module RovarSprak
 end
 
 class CLI
+  attr_reader :argv
+
   def initialize(argv)
     @argv = argv
   end
 
   def text
-    @argv[1..@argv.size].join(' ')
+    argv[1..argv.size].join(' ')
   end
 
   def direction
-    if @argv[0] =~ /to|from/
-      @argv[0]
+    if argv[0] =~ /to|from/
+      argv[0]
     else
       raise 'you must specify wether to translate "to" or "from" as the first argument'
     end
